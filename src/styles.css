@@ -7,10 +7,32 @@
         "Segoe UI",
         sans-serif;
 
-    color: #111111;
-    background: #f5f5f5;
+    color: #171717;
+    background: #f4f4f2;
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
+
+    --bg: #f4f4f2;
+    --surface: #ffffff;
+    --surface-soft: #eeeeeb;
+
+    --text: #171717;
+    --text-muted: #6d6d68;
+
+    --border: #deded8;
+
+    --accent: #d89b32;
+    --accent-dark: #ad741d;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+
+    --shadow-soft:
+        0 8px 30px rgba(0, 0, 0, 0.06);
+
+    --header-height: 72px;
 }
 
 * {
@@ -26,6 +48,8 @@ body {
 
 body {
     min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
 }
 
 button,
@@ -39,22 +63,412 @@ button {
     cursor: pointer;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --------------------------------
+   APPLICATION SHELL
+-------------------------------- */
+
 .app-shell {
     min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 24px;
-    text-align: center;
 }
 
-.app-shell h1 {
+/* --------------------------------
+   GLOBAL HEADER
+-------------------------------- */
+
+.global-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    height: var(--header-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    background: rgba(244, 244, 242, 0.94);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+}
+
+/* --------------------------------
+   BRAND
+-------------------------------- */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 44px;
+}
+
+.brand-name {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+/* --------------------------------
+   MENU BUTTON
+-------------------------------- */
+
+.menu-button span {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--text);
+
+    transition:
+        transform 180ms ease,
+        opacity 180ms ease;
+}
+
+.menu-button.is-active span:nth-child(1) {
+    transform: translateY(4px);
+}
+
+.menu-button.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.menu-button.is-active span:nth-child(3) {
+    transform: translateY(-4px);
+}
+/* --------------------------------
+   GLOBAL MENU
+-------------------------------- */
+
+.global-menu {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 28px;
+
+    width: 230px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-soft);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 180ms ease;
+}
+
+.global-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-item {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    text-align: left;
+
+    border: 0;
+    border-radius: var(--radius-sm);
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition:
+        background 160ms ease,
+        color 160ms ease;
+}
+
+.menu-item:hover {
+    background: var(--surface-soft);
+}
+
+/* --------------------------------
+   PAGE CONTAINER
+-------------------------------- */
+
+.page-container {
+    width: min(1200px, 100%);
+
+    margin: 0 auto;
+    padding: 80px 28px;
+}
+
+/* --------------------------------
+   WELCOME SECTION
+-------------------------------- */
+
+.welcome-section {
+    max-width: 760px;
+}
+
+.eyebrow {
+    margin: 0 0 16px;
+
+    color: var(--accent-dark);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+}
+
+.welcome-section h1 {
     margin: 0;
-    font-size: clamp(2rem, 6vw, 4rem);
-    letter-spacing: 0.08em;
+
+    font-size: clamp(2.8rem, 8vw, 6.5rem);
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
 }
 
-.app-shell p {
-    margin: 12px 0 0;
-    max-width: 600px;
+.tagline {
+    margin: 24px 0 0;
+
+    max-width: 620px;
+
+    color: var(--text-muted);
+
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     line-height: 1.6;
+
+    letter-spacing: 0.04em;
+}
+
+/* --------------------------------
+   TABLET
+-------------------------------- */
+
+@media (max-width: 768px) {
+    .global-header {
+        padding: 0 20px;
+    }
+
+    .global-menu {
+        right: 20px;
+    }
+
+    .page-container {
+        padding: 64px 20px;
+    }
+}
+
+/* --------------------------------
+   MOBILE
+-------------------------------- */
+
+@media (max-width: 480px) {
+    :root {
+        --header-height: 64px;
+    }
+
+    .global-header {
+        padding: 0 16px;
+    }
+
+    .global-menu {
+        top: calc(100% + 8px);
+        right: 16px;
+        left: 16px;
+        width: auto;
+    }
+
+    .page-container {
+        padding: 52px 16px;
+    }
+
+    .welcome-section h1 {
+        font-size: clamp(2.6rem, 16vw, 4.5rem);
+    }
+}
+
+/* --------------------------------
+   DESKTOP MENU
+-------------------------------- */
+
+@media (min-width: 769px) {
+    .global-menu {
+        width: 260px;
+    }
+
+    .menu-item {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+    }
+
+    .menu-item:hover {
+        transform: translateX(2px);
+    }
+}
+
+/* --------------------------------
+   GLOBAL BACK BUTTON
+-------------------------------- */
+
+.global-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition:
+        background 160ms ease,
+        border-color 160ms ease,
+        transform 160ms ease;
+}
+
+.global-back-button:hover {
+    background: var(--surface-soft);
+    border-color: #cfcfc8;
+    transform: translateX(-2px);
+}
+
+.global-back-button:active {
+    transform: translateX(-1px) scale(0.98);
+}
+
+.back-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* =========================================
+   GLOBAL TOAST SYSTEM
+   ========================================= */
+
+.toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: min(360px, calc(100vw - 32px));
+
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 14px 16px;
+
+    background: #181818;
+    color: #ffffff;
+
+    border: 1px solid #303030;
+    border-radius: 12px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    transform: translateY(-12px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+    pointer-events: auto;
+}
+
+.toast-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-message {
+    flex: 1;
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.toast-close {
+    border: 0;
+    background: transparent;
+
+    color: #aaaaaa;
+
+    font-size: 20px;
+    line-height: 1;
+
+    padding: 2px 4px;
+
+    cursor: pointer;
+}
+
+.toast-close:hover {
+    color: #ffffff;
+}
+
+.toast-success {
+    border-left: 3px solid #4ade80;
+}
+
+.toast-error {
+    border-left: 3px solid #f87171;
+}
+
+.toast-warning {
+    border-left: 3px solid #fbbf24;
+}
+
+.toast-info {
+    border-left: 3px solid #60a5fa;
+}
+
+@media (max-width: 600px) {
+    .toast-container {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+
+        width: auto;
+    }
 }
