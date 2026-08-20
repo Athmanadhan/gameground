@@ -1,0 +1,237 @@
+﻿.tournament-details-page {
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+}
+
+.tournament-details-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.tournament-details-header h1 {
+    margin: 10px 0;
+}
+
+.tournament-details-card {
+    width: min(760px, 100%);
+    margin: 0 auto 24px;
+    padding: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.details-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.details-section-header h2 {
+    margin: 0;
+}
+
+.details-section-header p {
+    margin: 7px 0 0;
+    opacity: 0.6;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.add-place-button,
+.details-skip-button {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 11px 16px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.add-place-button:hover,
+.details-skip-button:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.places-container {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.place-row {
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
+    align-items: center;
+    gap: 12px;
+}
+
+.place-number {
+    opacity: 0.5;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.place-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    color: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.place-input:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.remove-place-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.remove-place-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.place-validation-message {
+    min-height: 24px;
+    margin: 14px 0 0;
+    font-size: 14px;
+}
+
+.scheduling-options {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.scheduling-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.scheduling-option:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.scheduling-option input {
+    margin-top: 3px;
+}
+
+.scheduling-option span {
+    display: grid;
+    gap: 5px;
+}
+
+.scheduling-option strong {
+    font-size: 15px;
+}
+
+.scheduling-option small {
+    opacity: 0.55;
+    line-height: 1.5;
+}
+
+.matches-per-ground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.ground-count-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.ground-count-button:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.ground-match-count {
+    min-width: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.create-navigation {
+    width: min(760px, 100%);
+    margin: 40px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.details-navigation-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 600px) {
+
+    .tournament-details-page {
+        padding: 44px 16px 80px;
+    }
+
+    .tournament-details-card {
+        padding: 20px;
+    }
+
+    .details-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .add-place-button {
+        width: 100%;
+    }
+
+    .place-row {
+        grid-template-columns: 32px 1fr 40px;
+        gap: 8px;
+    }
+
+    .create-navigation {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .details-navigation-right {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .create-back-button,
+    .details-skip-button,
+    .create-continue-button {
+        width: 100%;
+    }
+}

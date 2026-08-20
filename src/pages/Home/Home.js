@@ -35,7 +35,7 @@ export default function Home() {
                         from one place.
                     </span>
 
-                    <span class="home-card-arrow">→</span>
+                   <span class="home-card-arrow">→</span>
                 </button>
 
 

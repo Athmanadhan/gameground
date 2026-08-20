@@ -1,0 +1,67 @@
+.tournament-name-page {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 72px 24px 100px;
+}
+
+.tournament-name-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.tournament-name-header h1 {
+    margin: 10px 0;
+}
+
+.tournament-name-form {
+    width: min(620px, 100%);
+    margin: 0 auto;
+}
+
+.tournament-name-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.tournament-name-form input {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    outline: none;
+}
+
+.tournament-name-form input:focus {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.tournament-name-error {
+    min-height: 24px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.create-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+@media (max-width: 600px) {
+    .tournament-name-page {
+        padding: 48px 18px 80px;
+    }
+
+    .create-navigation {
+        flex-direction: column;
+    }
+
+    .create-back-button,
+    .create-continue-button {
+        width: 100%;
+    }
+}

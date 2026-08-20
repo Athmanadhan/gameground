@@ -1,0 +1,159 @@
+.team-configuration-page {
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+}
+
+.team-configuration-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.team-configuration-header h1 {
+    margin: 10px 0;
+}
+
+.team-count-section,
+.team-list-section {
+    width: min(760px, 100%);
+    margin: 0 auto 28px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.team-count-header,
+.team-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.team-count-header h2,
+.team-list-header h2 {
+    margin: 0;
+}
+
+.team-count-header p,
+.team-list-header p {
+    margin: 6px 0 0;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+.team-count-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.team-count-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-size: 22px;
+}
+
+.team-count-display {
+    min-width: 36px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.add-team-button {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: transparent;
+    color: inherit;
+    white-space: nowrap;
+}
+
+.team-fields {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.team-field {
+    display: grid;
+    grid-template-columns: 48px 1fr 42px;
+    align-items: center;
+    gap: 12px;
+}
+
+.team-number {
+    opacity: 0.5;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.team-name-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    color: inherit;
+    outline: none;
+}
+
+.team-name-input:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.remove-team-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-size: 20px;
+}
+
+.team-validation-message {
+    min-height: 24px;
+    margin: 14px 0 0;
+    font-size: 14px;
+}
+
+.create-navigation {
+    width: min(760px, 100%);
+    margin: 40px auto 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .team-configuration-page {
+        padding: 44px 16px 80px;
+    }
+
+    .team-count-header,
+    .team-list-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .team-field {
+        grid-template-columns: 36px 1fr 40px;
+        gap: 8px;
+    }
+
+    .create-navigation {
+        flex-direction: column;
+    }
+
+    .create-back-button,
+    .create-continue-button {
+        width: 100%;
+    }
+}
